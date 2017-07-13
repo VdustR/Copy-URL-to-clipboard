@@ -1,0 +1,63 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    title Copy URL to clipboard
+    link(rel="shortcut icon" href="icon.png" type="image/png")
+    link(rel="stylesheet" href="assets/pure-min.css")
+    link(href="options.css" rel="stylesheet")
+    script(src="assets/vue.min.js")
+  body
+    #app
+      .parameters
+        h1 Parameters
+        table.pure-table
+          thead
+            tr
+              th Parameter
+              th Description
+          tbody
+            tr
+              td \n
+              td linebreak
+            tr
+              td \t
+              td tab
+            tr
+              td $title
+              td Title
+            tr
+              td $url
+              td URL
+            tr
+              td $tinyurl
+              td TinyURL
+      .options
+        h1 Options
+          h2 Methods
+          table.pure-table
+            thead
+              tr
+                th name
+                th value
+                th
+              tr(v-for="template in option.templates")
+                td {{template.name}}
+                td
+                  form.pure-form
+                    input(v-model="template.value")
+                td
+                  button.pure-button(@click="removeMethod(template)") remove
+              tr
+                td
+                  form.pure-form
+                    input(v-model="newMethodName")
+                td
+                  form.pure-form
+                    input(v-model="newMethodValue")
+                td
+                  button.pure-button(
+                    @click="addMethod"
+                    :disabled="!isNewMethodValid"
+                  ) add
+    script(src="options.js")

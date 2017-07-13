@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/pure-min.css">
+    <link href="popup.css" rel="stylesheet">
+    <script src="assets/vue.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <textarea class="clip-work-area" ref="clipWorkArea" v-model="clipWorkArea"></textarea>
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item copy-item" v-for="template in option.templates" @click="copy(template)">{{template.name}}</li>
+      </ul>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>

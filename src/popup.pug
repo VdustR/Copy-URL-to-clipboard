@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    link(rel="stylesheet" href="assets/pure-min.css")
+    link(href="popup.css" rel="stylesheet")
+    script(src="assets/vue.min.js")
+  body
+    #app
+      textarea.clip-work-area(ref="clipWorkArea" v-model="clipWorkArea")
+      ul.pure-menu-list
+        li.pure-menu-item.copy-item(
+          v-for="template in option.templates"
+          @click="copy(template)"
+        ) {{template.name}}
+    script(src="popup.js")

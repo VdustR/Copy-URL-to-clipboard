@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Copy URL to clipboard</title>
+    <link rel="shortcut icon" href="icon.png" type="image/png">
+    <link rel="stylesheet" href="assets/pure-min.css">
+    <link href="options.css" rel="stylesheet">
+    <script src="assets/vue.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="parameters">
+        <h1>Parameters</h1>
+        <table class="pure-table">
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\n</td>
+              <td>linebreak</td>
+            </tr>
+            <tr>
+              <td>\t</td>
+              <td>tab</td>
+            </tr>
+            <tr>
+              <td>$title</td>
+              <td>Title</td>
+            </tr>
+            <tr>
+              <td>$url</td>
+              <td>URL</td>
+            </tr>
+            <tr>
+              <td>$tinyurl</td>
+              <td>TinyURL</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="options">
+        <h1>Options
+          <h2>Methods</h2>
+          <table class="pure-table">
+            <thead>
+              <tr>
+                <th>name</th>
+                <th>value</th>
+                <th></th>
+              </tr>
+              <tr v-for="template in option.templates">
+                <td>{{template.name}}</td>
+                <td>
+                  <form class="pure-form">
+                    <input v-model="template.value">
+                  </form>
+                </td>
+                <td>
+                  <button class="pure-button" @click="removeMethod(template)">remove</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <form class="pure-form">
+                    <input v-model="newMethodName">
+                  </form>
+                </td>
+                <td>
+                  <form class="pure-form">
+                    <input v-model="newMethodValue">
+                  </form>
+                </td>
+                <td>
+                  <button class="pure-button" @click="addMethod" :disabled="!isNewMethodValid">add</button>
+                </td>
+              </tr>
+            </thead>
+          </table>
+        </h1>
+      </div>
+    </div>
+    <script src="options.js"></script>
+  </body>
+</html>
